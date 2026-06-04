@@ -4,29 +4,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Saturday Dinner</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #faf7f2;
+      min-height: 100vh;
+      color: #2c2c2c;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #1a1a1a 0%, #2e2416 100%);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(212,175,100,0.15) 0%, transparent 70%);
+    }
+
+    .hero-icon { font-size: 2.8rem; margin-bottom: 1rem; display: block; }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #c9a96e;
+      background: rgba(201,169,110,0.12);
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #faf7f2;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+    }
+
+    .hero .day {
+      font-size: 0.8rem;
+      color: rgba(250,247,242,0.45);
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .container { max-width: 480px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .card-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #c9a96e;
+      padding: 1rem 1.25rem 0;
+      font-weight: 600;
+    }
+
+    .card-value {
+      font-size: 1rem;
+      color: #2c2c2c;
+      padding: 0.35rem 1.25rem 1rem;
+      line-height: 1.6;
+    }
+
+    .card-value.placeholder { color: #bbb; font-style: italic; }
+    .card-divider { height: 1px; background: #f2ede6; margin: 0 1.25rem; }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #999;
+      font-size: 0.82rem;
+      text-decoration: none;
+      margin-top: 2rem;
+      justify-content: center;
+      letter-spacing: 0.04em;
+    }
+
+    .back-link:hover { color: #2c2c2c; }
+  </style>
 </head>
 <body>
-  <div class="event-header">
-    <div class="day-label">Saturday</div>
-    <h1>Dinner</h1>
-    <div class="time"><!-- time --></div>
+
+  <div class="hero">
+    <span class="hero-icon">🍽️</span>
+    <div class="hero-tag">Dinner · Saturday</div>
+    <h1><!-- Restaurant Name --></h1>
+    <div class="day"><!-- City, Neighborhood --></div>
   </div>
 
   <div class="container">
-    <div class="detail-block">
-      <h3>Where</h3>
-      <p><!-- restaurant name and address --></p>
+
+    <div class="card">
+      <div class="card-label">📍 Location</div>
+      <div class="card-value placeholder"><!-- Address --></div>
+      <div class="card-divider"></div>
+      <div class="card-label">🕗 Time</div>
+      <div class="card-value placeholder"><!-- Reservation time --></div>
     </div>
-    <div class="detail-block">
-      <h3>Reservation</h3>
-      <p><!-- reservation details --></p>
+
+    <div class="card">
+      <div class="card-label">📋 Reservation</div>
+      <div class="card-value placeholder"><!-- Reservation name / confirmation --></div>
     </div>
-    <div class="detail-block">
-      <h3>Notes</h3>
-      <p><!-- any notes --></p>
+
+    <div class="card">
+      <div class="card-label">👗 Dress Code</div>
+      <div class="card-value placeholder"><!-- Smart casual, formal, etc. --></div>
     </div>
-    <a class="back-link" href="index.html">&larr; Back to itinerary</a>
+
+    <div class="card">
+      <div class="card-label">✨ Notes</div>
+      <div class="card-value placeholder"><!-- Anything special to know --></div>
+    </div>
+
+    <a class="back-link" href="index.html">← Back to itinerary</a>
   </div>
+
 </body>
 </html>
