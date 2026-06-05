@@ -39,26 +39,61 @@
     .back-link{font-size:.36rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.46;text-decoration:none;}
     .back-link:hover{opacity:.82;}
     .tagline{font-family:'Dancing Script',cursive;font-size:.82rem;color:var(--ink);opacity:.32;margin-top:.3rem;}
-    #reveal-cover{position:fixed;inset:0;z-index:1000;background:#cbc4b0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform 0.85s cubic-bezier(.77,0,.18,1),opacity 0.7s ease;}
-    #reveal-cover.revealed{transform:translateY(-100%);opacity:0;}
-    .cover-card{background:#e6ddc8;border:1px solid rgba(58,82,52,.18);max-width:310px;width:88%;padding:2.8rem 2rem 2.4rem;text-align:center;position:relative;box-shadow:0 8px 40px rgba(58,82,52,.14);}
-    .cover-eyebrow{font-size:.38rem;letter-spacing:.38em;text-transform:uppercase;color:#3a5234;opacity:.6;margin-bottom:.5rem;}
-    .cover-title{font-family:'Dancing Script',cursive;font-size:1.85rem;color:#3a5234;line-height:1.2;margin-bottom:1.6rem;}
-    .cover-ornament{display:flex;align-items:center;gap:.5rem;margin-bottom:1.6rem;}
-    .cover-ornament::before,.cover-ornament::after{content:'';flex:1;height:1px;background:#3a5234;opacity:.22;}
-    .cover-ornament span{font-size:.32rem;color:#3a5234;opacity:.38;letter-spacing:.2em;}
-    #reveal-btn{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.44rem;letter-spacing:.3em;text-transform:uppercase;color:#e6ddc8;background:#3a5234;border:none;padding:.9rem 2rem;cursor:pointer;width:100%;transition:background 0.2s,transform 0.12s;}
-    #reveal-btn:hover{background:#2e4029;transform:translateY(-1px);}
-    #reveal-btn:active{transform:scale(0.97);}
-    .cover-sp{position:absolute;color:#3a5234;}
-    #confetti-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2000;display:none;}
+
+    #reveal-cover {
+      position: fixed; inset: 0; z-index: 1000;
+      background: #cbc4b0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: transform 0.85s cubic-bezier(.77,0,.18,1), opacity 0.7s ease;
+    }
+    #reveal-cover.revealed { transform: translateY(-100%); opacity: 0; }
+    .cover-card {
+      background: #e6ddc8;
+      border: 1px solid rgba(58,82,52,.18);
+      max-width: 310px; width: 88%;
+      padding: 2.8rem 2rem 2.4rem;
+      text-align: center; position: relative;
+      box-shadow: 0 8px 40px rgba(58,82,52,.14);
+    }
+    .cover-eyebrow {
+      font-size: .38rem; letter-spacing: .38em; text-transform: uppercase;
+      color: #3a5234; opacity: .6; margin-bottom: .5rem;
+    }
+    .cover-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.85rem; color: #3a5234; line-height: 1.2; margin-bottom: 1.6rem;
+    }
+    .cover-ornament {
+      display: flex; align-items: center; gap: .5rem; margin-bottom: 1.6rem;
+    }
+    .cover-ornament::before, .cover-ornament::after {
+      content: ''; flex: 1; height: 1px; background: #3a5234; opacity: .22;
+    }
+    .cover-ornament span { font-size: .32rem; color: #3a5234; opacity: .38; letter-spacing: .2em; }
+    #reveal-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: .44rem; letter-spacing: .3em; text-transform: uppercase;
+      color: #e6ddc8; background: #3a5234; border: none;
+      padding: .9rem 2rem; cursor: pointer; width: 100%;
+      transition: background 0.2s, transform 0.12s;
+    }
+    #reveal-btn:hover { background: #2e4029; transform: translateY(-1px); }
+    #reveal-btn:active { transform: scale(0.97); }
+    .cover-sp {
+      position: absolute; color: #3a5234;
+    }
+    #confetti-canvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 2000; display: none;
+    }
+
   </style>
 </head>
 <body>
   <div id="reveal-cover">
     <canvas id="confetti-canvas"></canvas>
     <div class="cover-card">
-      <div class="cover-sp" style="width:9px;height:9px;opacity:0.3;top:10px;left:10px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
+      <div class="cover-sp" style="width:9px;height:9px;opacity:0.3;top:10px;left:10px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div><div class="cover-sp" style="width:7px;height:7px;opacity:0.22;top:12px;right:12px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div><div class="cover-sp" style="width:8px;height:8px;opacity:0.28;bottom:10px;left:12px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div><div class="cover-sp" style="width:10px;height:10px;opacity:0.32;bottom:12px;right:10px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div><div class="cover-sp" style="width:6px;height:6px;opacity:0.18;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
       <svg style="width:80px;color:#3a5234;opacity:0.8;display:block;margin:0 auto 1.2rem;" viewBox="0 0 100 65" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="52" rx="46" ry="12"/><path d="M22,52 C22,52 20,18 50,12 C80,18 78,52 78,52"/><path d="M4,51 C12,46 20,52 22,52"/><path d="M78,52 C80,52 88,46 96,51"/><path d="M24,49 C35,43 65,43 76,49"/></svg>
       <p class="cover-eyebrow">Saturday Afternoon · Nashville</p>
       <p class="cover-title">Time to put on your dancing boots...</p>
@@ -68,23 +103,75 @@
   </div>
 <div class="card">
   <div class="border-frame"></div>
+  <div style="position:absolute;width:58px;height:58px;color:var(--ink);opacity:0.72;top:8px;left:8px;"><svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><circle cx="35" cy="35" r="31"/><circle cx="35" cy="35" r="7"/><line x1="35" y1="4" x2="35" y2="28"/><line x1="35" y1="42" x2="35" y2="66"/><line x1="4" y1="35" x2="28" y2="35"/><line x1="42" y1="35" x2="66" y2="35"/><line x1="13" y1="13" x2="30" y2="30"/><line x1="40" y1="40" x2="57" y2="57"/><line x1="57" y1="13" x2="40" y2="30"/><line x1="30" y1="40" x2="13" y2="57"/></svg></div>
+<div style="position:absolute;width:52px;height:52px;color:var(--ink);opacity:0.72;top:14px;left:72px;transform:rotate(-10deg);"><svg viewBox="0 0 90 55" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><path d="M5,28 C15,20 30,22 40,28 C50,34 65,36 80,28" stroke-linecap="round"/><circle cx="72" cy="28" r="12"/><line x1="72" y1="14" x2="72" y2="8"/><line x1="72" y1="42" x2="72" y2="48"/><line x1="58" y1="28" x2="52" y2="28"/><line x1="86" y1="28" x2="80" y2="28"/><line x1="62" y1="18" x2="58" y2="14"/><line x1="82" y1="38" x2="86" y2="42"/><line x1="82" y1="18" x2="86" y2="14"/><line x1="62" y1="38" x2="58" y2="42"/><path d="M5,28 C5,28 2,24 4,20 C6,16 12,18 12,22 L12,34 C12,38 6,40 4,36 C2,32 5,28 5,28 Z"/></svg></div>
+<div style="position:absolute;width:65px;height:65px;color:var(--ink);opacity:0.75;top:8px;left:130px;"><svg viewBox="0 0 100 65" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="52" rx="46" ry="12"/><path d="M22,52 C22,52 20,18 50,12 C80,18 78,52 78,52"/><path d="M4,51 C12,46 20,52 22,52"/><path d="M78,52 C80,52 88,46 96,51"/><path d="M24,49 C35,43 65,43 76,49"/><path d="M32,35 C38,28 62,28 68,35" stroke-width="1" opacity="0.6"/></svg></div>
+<div style="position:absolute;width:60px;height:60px;color:var(--ink);opacity:0.72;top:6px;right:6px;"><svg viewBox="0 0 80 100" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><line x1="40" y1="100" x2="40" y2="60" stroke-width="2.5"/><path d="M40,60 C40,60 20,50 5,35" stroke-linecap="round"/><path d="M40,60 C40,60 55,45 70,25" stroke-linecap="round"/><path d="M40,60 C40,60 15,55 0,50" stroke-linecap="round"/><path d="M40,60 C40,60 65,55 80,52" stroke-linecap="round"/><path d="M40,65 C40,65 22,60 8,58" stroke-linecap="round"/><path d="M40,65 C40,65 58,62 72,62" stroke-linecap="round"/><path d="M40,70 C40,70 28,68 18,72" stroke-linecap="round"/><path d="M40,70 C40,70 52,70 62,74" stroke-linecap="round"/><path d="M40,55 C38,45 35,30 42,5" stroke-linecap="round"/><path d="M42,5 L38,15 M42,5 L46,14" stroke-linecap="round"/></svg></div>
+<div style="position:absolute;width:13px;height:13px;color:var(--ink);opacity:0.45;top:22px;left:200px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
+<div style="position:absolute;width:8px;height:8px;color:var(--ink);opacity:0.3;top:8px;left:250px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.3;top:30px;right:75px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:10px;height:10px;color:var(--ink);opacity:0.35;top:16px;right:72px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
+<div style="position:absolute;width:60px;height:60px;color:var(--ink);opacity:0.7;top:90px;left:4px;"><svg viewBox="0 0 110 90" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M22,32 C4,12 8,40 22,42" stroke-linecap="round"/><path d="M88,32 C106,12 102,40 88,42" stroke-linecap="round"/><ellipse cx="55" cy="50" rx="33" ry="28"/><ellipse cx="42" cy="44" rx="8" ry="7"/><ellipse cx="68" cy="44" rx="8" ry="7"/><path d="M47,60 C48,57 62,57 63,60"/><path d="M45,63 L45,68 M50,62 L50,68 M55,62 L55,68 M60,62 L60,68 M65,63 L65,68"/><path d="M38,68 L45,73 L65,73 L72,68"/></svg></div>
+<div style="position:absolute;width:9px;height:9px;color:var(--ink);opacity:0.3;top:160px;left:6px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:52px;height:52px;color:var(--ink);opacity:0.68;top:200px;left:8px;"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="14"/><line x1="40" y1="2" x2="40" y2="22"/><line x1="40" y1="58" x2="40" y2="78"/><line x1="2" y1="40" x2="22" y2="40"/><line x1="58" y1="40" x2="78" y2="40"/><line x1="10" y1="10" x2="24" y2="24"/><line x1="56" y1="56" x2="70" y2="70"/><line x1="70" y1="10" x2="56" y2="24"/><line x1="24" y1="56" x2="10" y2="70"/><line x1="40" y1="2" x2="34" y2="12"/><line x1="40" y1="2" x2="46" y2="12"/><line x1="78" y1="40" x2="68" y2="34"/><line x1="78" y1="40" x2="68" y2="46"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.3;top:265px;left:12px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:58px;height:58px;color:var(--ink);opacity:0.7;top:290px;left:4px;"><svg viewBox="0 0 80 95" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><path d="M40,95 L40,58"/><path d="M40,58 C30,50 8,45 2,30 L6,28 C12,42 32,47 40,55"/><path d="M40,58 C50,50 72,45 78,30 L74,28 C68,42 48,47 40,55"/><path d="M40,65 C30,60 12,58 4,50 L7,47 C15,55 32,57 40,62"/><path d="M40,65 C50,60 68,58 76,50 L73,47 C65,55 48,57 40,62"/><path d="M40,72 C33,68 20,68 12,63 L14,60 C22,65 34,65 40,69"/><path d="M40,72 C47,68 60,68 68,63 L66,60 C58,65 46,65 40,69"/></svg></div>
+<div style="position:absolute;width:52px;height:52px;color:var(--ink);opacity:0.72;top:95px;right:4px;"><svg viewBox="0 0 80 85" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg"><path d="M16,75 L16,38 A24,24 0 1,1 64,38 L64,75"/><circle cx="26" cy="33" r="3.5" fill="currentColor" stroke="none"/><circle cx="54" cy="33" r="3.5" fill="currentColor" stroke="none"/><circle cx="20" cy="54" r="3.5" fill="currentColor" stroke="none"/><circle cx="60" cy="54" r="3.5" fill="currentColor" stroke="none"/></svg></div>
+<div style="position:absolute;width:9px;height:9px;color:var(--ink);opacity:0.3;top:158px;right:8px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:52px;height:52px;color:var(--ink);opacity:0.72;top:200px;right:5px;"><svg viewBox="0 0 75 95" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M50,8 L50,55 C50,58 60,62 65,70 L65,80 L20,80 L20,72 L30,65 L30,8 Z" stroke-linejoin="round"/><path d="M30,8 L50,8" stroke-linecap="round"/><path d="M20,80 L65,80 L68,85 L15,85 Z"/><path d="M33,25 C36,20 44,20 47,25" stroke-width="1.2"/><path d="M33,32 C36,27 44,27 47,32" stroke-width="1.2"/><path d="M33,39 C36,34 44,34 47,39" stroke-width="1.2"/><path d="M30,65 C35,62 45,62 50,65" stroke-width="1.2"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.3;top:270px;right:14px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:50px;height:50px;color:var(--ink);opacity:0.68;top:310px;right:4px;transform:rotate(15deg);"><svg viewBox="0 0 90 55" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><path d="M5,28 C15,20 30,22 40,28 C50,34 65,36 80,28" stroke-linecap="round"/><circle cx="72" cy="28" r="12"/><line x1="72" y1="14" x2="72" y2="8"/><line x1="72" y1="42" x2="72" y2="48"/><line x1="58" y1="28" x2="52" y2="28"/><line x1="86" y1="28" x2="80" y2="28"/><line x1="62" y1="18" x2="58" y2="14"/><line x1="82" y1="38" x2="86" y2="42"/><line x1="82" y1="18" x2="86" y2="14"/><line x1="62" y1="38" x2="58" y2="42"/><path d="M5,28 C5,28 2,24 4,20 C6,16 12,18 12,22 L12,34 C12,38 6,40 4,36 C2,32 5,28 5,28 Z"/></svg></div>
+<div style="position:absolute;width:52px;height:52px;color:var(--ink);opacity:0.7;bottom:10px;left:6px;transform:rotate(10deg);"><svg viewBox="0 0 90 55" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg"><path d="M5,28 C15,20 30,22 40,28 C50,34 65,36 80,28" stroke-linecap="round"/><circle cx="72" cy="28" r="12"/><line x1="72" y1="14" x2="72" y2="8"/><line x1="72" y1="42" x2="72" y2="48"/><line x1="58" y1="28" x2="52" y2="28"/><line x1="86" y1="28" x2="80" y2="28"/><line x1="62" y1="18" x2="58" y2="14"/><line x1="82" y1="38" x2="86" y2="42"/><line x1="82" y1="18" x2="86" y2="14"/><line x1="62" y1="38" x2="58" y2="42"/><path d="M5,28 C5,28 2,24 4,20 C6,16 12,18 12,22 L12,34 C12,38 6,40 4,36 C2,32 5,28 5,28 Z"/></svg></div>
+<div style="position:absolute;width:62px;height:62px;color:var(--ink);opacity:0.73;bottom:8px;left:70px;"><svg viewBox="0 0 100 65" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="52" rx="46" ry="12"/><path d="M22,52 C22,52 20,18 50,12 C80,18 78,52 78,52"/><path d="M4,51 C12,46 20,52 22,52"/><path d="M78,52 C80,52 88,46 96,51"/><path d="M24,49 C35,43 65,43 76,49"/><path d="M32,35 C38,28 62,28 68,35" stroke-width="1" opacity="0.6"/></svg></div>
+<div style="position:absolute;width:56px;height:56px;color:var(--ink);opacity:0.72;bottom:8px;left:145px;"><svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><circle cx="35" cy="35" r="31"/><circle cx="35" cy="35" r="7"/><line x1="35" y1="4" x2="35" y2="28"/><line x1="35" y1="42" x2="35" y2="66"/><line x1="4" y1="35" x2="28" y2="35"/><line x1="42" y1="35" x2="66" y2="35"/><line x1="13" y1="13" x2="30" y2="30"/><line x1="40" y1="40" x2="57" y2="57"/><line x1="57" y1="13" x2="40" y2="30"/><line x1="30" y1="40" x2="13" y2="57"/></svg></div>
+<div style="position:absolute;width:58px;height:58px;color:var(--ink);opacity:0.7;bottom:8px;right:6px;"><svg viewBox="0 0 110 90" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><path d="M22,32 C4,12 8,40 22,42" stroke-linecap="round"/><path d="M88,32 C106,12 102,40 88,42" stroke-linecap="round"/><ellipse cx="55" cy="50" rx="33" ry="28"/><ellipse cx="42" cy="44" rx="8" ry="7"/><ellipse cx="68" cy="44" rx="8" ry="7"/><path d="M47,60 C48,57 62,57 63,60"/><path d="M45,63 L45,68 M50,62 L50,68 M55,62 L55,68 M60,62 L60,68 M65,63 L65,68"/><path d="M38,68 L45,73 L65,73 L72,68"/></svg></div>
+<div style="position:absolute;width:11px;height:11px;color:var(--ink);opacity:0.4;bottom:55px;left:68px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
+<div style="position:absolute;width:13px;height:13px;color:var(--ink);opacity:0.45;bottom:22px;left:210px;"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>
+<div style="position:absolute;width:8px;height:8px;color:var(--ink);opacity:0.3;bottom:40px;right:70px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.3;bottom:18px;left:240px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.25;top:120px;left:68px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:8px;height:8px;color:var(--ink);opacity:0.25;top:145px;right:66px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:7px;height:7px;color:var(--ink);opacity:0.25;top:360px;left:70px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+<div style="position:absolute;width:8px;height:8px;color:var(--ink);opacity:0.25;top:380px;right:68px;"><svg viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 L7,5 L12,6 L7,7 L6,12 L5,7 L0,6 L5,5 Z"/></svg></div>
+
   <div class="content">
-    <p class="eyebrow-text">Activity &nbsp;·&nbsp; Saturday Afternoon</p>
+    <p class="eyebrow-text">Activity  ·  Saturday Afternoon</p>
     <p class="script-line">Boot scootin' at</p>
     <h1 class="big-name">Turn Their Heads</h1>
     <p class="venue-sub">Line Dancing Lesson · Nashville</p>
     <p class="location-text">830 Fesslers Pkwy Ste 114 · Nashville, TN 37210</p>
     <div class="ornament"><span>&#9670; &nbsp; &#9670; &nbsp; &#9670;</span></div>
-    <p class="blurb">Y'all are about to become line dancers — and trust us, you'll want these moves for Station Inn tonight. Turn Their Heads is one of the best line dancing experiences in Nashville. No experience required. Just show up ready to stomp, laugh, and look good doing it.</p>
+    <p class="blurb">Y'all are about to become line dancers. Turn Their Heads is the only country-dance academy in Nashville with its own studio, and it's hyped as one of the best line dancing experiences in the city — five stars across hundreds of reviews. No experience required. Just show up ready to stomp, laugh, and look good doing it.</p>
     <div class="ornament"><span>&#9670; &nbsp; &#9670; &nbsp; &#9670;</span></div>
     <div class="details">
-      <div class="detail"><span class="detail-label">When</span><div class="detail-value">Saturday, June 6 · 2:30 PM – 3:30 PM</div></div>
-      <div class="detail"><span class="detail-label">Where</span><div class="detail-value">830 Fesslers Pkwy Ste 114<br>Nashville, TN 37210</div></div>
-      <div class="detail"><span class="detail-label">Booking</span><div class="detail-value">#352878250 · (615) 676-1900</div></div>
-      <div class="detail"><span class="detail-label">Important</span><div class="detail-value">Do NOT search the company name in Uber/Lyft — enter the address directly: 830 Fesslers Pkwy Ste 114</div></div>
-      <div class="detail"><span class="detail-label">Arrive</span><div class="detail-value">15–30 min early. If another class is running, relax in the lounge — take a right as you enter.</div></div>
-      <div class="detail"><span class="detail-label">What to Wear</span><div class="detail-value">Boots, sneakers, or smooth-soled shoes (no sandals). Clothes you can move in.</div></div>
-      <div class="detail"><span class="detail-label">What to Bring</span><div class="detail-value">BYOB welcome! They sell sodas &amp; snacks. Good energy — they'll handle the rest.</div></div>
+      <div class="detail">
+        <span class="detail-label">When</span>
+        <div class="detail-value">Saturday, June 6 · 2:30 PM – 3:30 PM</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Where</span>
+        <div class="detail-value">830 Fesslers Pkwy Ste 114<br>Nashville, TN 37210</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Booking</span>
+        <div class="detail-value">#352878250 · (615) 676-1900</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Important</span>
+        <div class="detail-value">Do NOT search the company name in Uber/Lyft — enter the address directly: 830 Fesslers Pkwy Ste 114</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Arrive</span>
+        <div class="detail-value">15–30 min early to check in. If another class is running, relax in the lounge — take a right as you enter.</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">What to Wear</span>
+        <div class="detail-value">Boots, sneakers, or smooth-soled shoes (no sandals). Clothes you can move in.</div>
+      </div>
+      <div class="detail">
+        <span class="detail-label">What to Bring</span>
+        <div class="detail-value">BYOB welcome! They sell sodas &amp; snacks. Good energy — they'll handle the rest.</div>
+      </div>
     </div>
     <div class="map-section">
       <p class="map-label">How to get there</p>
@@ -97,6 +184,7 @@
     </footer>
   </div>
 </div>
+
 <script>
 (function(){
   var canvas=document.getElementById('confetti-canvas');
@@ -105,14 +193,65 @@
   function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
   window.addEventListener('resize',resize); resize();
   var COLS=['#3a5234','#6a9c5e','#c8b060','#e6ddc8','#9a7a3a','#5c8c50','#b8a060','#4a7a40','#8fbc6a','#d4a83a'];
-  function P(x,y){ this.x=x; this.y=y; this.vx=(Math.random()-.5)*16; this.vy=-(Math.random()*20+10); this.g=0.6; this.col=COLS[Math.floor(Math.random()*COLS.length)]; this.type=Math.floor(Math.random()*3); this.s=Math.random()*9+4; this.r=Math.random()*Math.PI*2; this.rs=(Math.random()-.5)*.28; this.op=1; this.fade=Math.random()*.013+.006; }
-  P.prototype.tick=function(){ this.vy+=this.g; this.x+=this.vx; this.y+=this.vy; this.vx*=.985; this.r+=this.rs; this.op-=this.fade; };
-  P.prototype.draw=function(c){ c.save(); c.globalAlpha=Math.max(0,this.op); c.fillStyle=this.col; c.translate(this.x,this.y); c.rotate(this.r); var s=this.s; if(this.type===0){ c.beginPath(); c.moveTo(0,-s); c.lineTo(s*.55,0); c.lineTo(0,s); c.lineTo(-s*.55,0); c.closePath(); c.fill(); } else if(this.type===1){ c.fillRect(-s/2,-s/3,s,s*.6); } else { c.beginPath(); c.arc(0,0,s/2,0,Math.PI*2); c.fill(); } c.restore(); };
+  function P(x,y){
+    this.x=x; this.y=y;
+    this.vx=(Math.random()-.5)*16;
+    this.vy=-(Math.random()*20+10);
+    this.g=0.6;
+    this.col=COLS[Math.floor(Math.random()*COLS.length)];
+    this.type=Math.floor(Math.random()*3);
+    this.s=Math.random()*9+4;
+    this.r=Math.random()*Math.PI*2;
+    this.rs=(Math.random()-.5)*.28;
+    this.op=1;
+    this.fade=Math.random()*.013+.006;
+  }
+  P.prototype.tick=function(){
+    this.vy+=this.g; this.x+=this.vx; this.y+=this.vy;
+    this.vx*=.985; this.r+=this.rs; this.op-=this.fade;
+  };
+  P.prototype.draw=function(c){
+    c.save(); c.globalAlpha=Math.max(0,this.op);
+    c.fillStyle=this.col; c.translate(this.x,this.y); c.rotate(this.r);
+    var s=this.s;
+    if(this.type===0){
+      c.beginPath(); c.moveTo(0,-s); c.lineTo(s*.55,0); c.lineTo(0,s); c.lineTo(-s*.55,0); c.closePath(); c.fill();
+    } else if(this.type===1){
+      c.fillRect(-s/2,-s/3,s,s*.6);
+    } else {
+      c.beginPath(); c.arc(0,0,s/2,0,Math.PI*2); c.fill();
+    }
+    c.restore();
+  };
   function burst(x,y,n){ for(var i=0;i<n;i++) parts.push(new P(x,y)); }
-  function loop(){ if(!running) return; ctx.clearRect(0,0,W,H); for(var i=parts.length-1;i>=0;i--){ parts[i].tick(); parts[i].draw(ctx); if(parts[i].op<=0||parts[i].y>H+60) parts.splice(i,1); } if(parts.length>0) requestAnimationFrame(loop); else { running=false; canvas.style.display='none'; } }
-  function fire(x,y){ canvas.style.display='block'; burst(x,y,70); setTimeout(function(){ burst(W*.15,H*.4,35); },100); setTimeout(function(){ burst(W*.85,H*.4,35); },180); setTimeout(function(){ burst(W*.4,H*.25,45); },300); setTimeout(function(){ burst(W*.6,H*.3,35); },420); if(!running){ running=true; requestAnimationFrame(loop); } }
-  document.getElementById('reveal-btn').addEventListener('click',function(e){ var r=e.target.getBoundingClientRect(); fire(r.left+r.width/2,r.top+r.height/2); var cover=document.getElementById('reveal-cover'); cover.classList.add('revealed'); setTimeout(function(){ cover.style.display='none'; },900); });
+  function loop(){
+    if(!running) return;
+    ctx.clearRect(0,0,W,H);
+    for(var i=parts.length-1;i>=0;i--){
+      parts[i].tick(); parts[i].draw(ctx);
+      if(parts[i].op<=0||parts[i].y>H+60) parts.splice(i,1);
+    }
+    if(parts.length>0) requestAnimationFrame(loop);
+    else { running=false; canvas.style.display='none'; }
+  }
+  function fire(x,y){
+    canvas.style.display='block';
+    burst(x,y,70);
+    setTimeout(function(){ burst(W*.15,H*.4,35); },100);
+    setTimeout(function(){ burst(W*.85,H*.4,35); },180);
+    setTimeout(function(){ burst(W*.4,H*.25,45); },300);
+    setTimeout(function(){ burst(W*.6,H*.3,35); },420);
+    if(!running){ running=true; requestAnimationFrame(loop); }
+  }
+  document.getElementById('reveal-btn').addEventListener('click',function(e){
+    var r=e.target.getBoundingClientRect();
+    fire(r.left+r.width/2, r.top+r.height/2);
+    var cover=document.getElementById('reveal-cover');
+    cover.classList.add('revealed');
+    setTimeout(function(){ cover.style.display='none'; },900);
+  });
 })();
 </script>
+
 </body>
 </html>
