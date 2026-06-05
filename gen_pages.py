@@ -38,30 +38,47 @@ def small_sp(top=None, bottom=None, left=None, right=None, size=8, op=0.3):
     if right is not None: style += f"right:{right}px;"
     return f'<div style="{style}">{SMALL_DIAMOND}</div>\n'
 
-def build_icons():
+# Pool of western icons. Each page rotates through these so the same theme
+# repeats with a different arrangement on every page.
+ICON_POOL = [WHEEL, SPUR, HAT, YUCCA, SKULL, SUNBURST, AGAVE, HORSESHOE, BOOTS]
+
+# Fixed border "slots" keep the overall composition balanced and behind the
+# content; which icon fills each slot shifts per page (variant).
+ICON_SLOTS = [
+    dict(top=8,    left=8,   size=58),
+    dict(top=14,   left=72,  size=52, rotate=-10),
+    dict(top=8,    left=130, size=65, opacity=0.75),
+    dict(top=6,    right=6,  size=60),
+    dict(top=90,   left=4,   size=60, opacity=0.7),
+    dict(top=200,  left=8,   size=52, opacity=0.68),
+    dict(top=290,  left=4,   size=58, opacity=0.7),
+    dict(top=95,   right=4,  size=52),
+    dict(top=200,  right=5,  size=52),
+    dict(top=310,  right=4,  size=50, rotate=15, opacity=0.68),
+    dict(bottom=10, left=6,   size=52, rotate=10, opacity=0.7),
+    dict(bottom=8,  left=70,  size=62, opacity=0.73),
+    dict(bottom=8,  left=145, size=56),
+    dict(bottom=8,  right=6,  size=58, opacity=0.7),
+]
+
+def build_icons(variant=0):
     h = ""
-    h += icon_div(WHEEL,    top=8,  left=8,  size=58)
-    h += icon_div(SPUR,     top=14, left=72, size=52, rotate=-10)
-    h += icon_div(HAT,      top=8,  left=130, size=65, opacity=0.75)
-    h += icon_div(YUCCA,    top=6,  right=6, size=60)
+    for i, slot in enumerate(ICON_SLOTS):
+        s = dict(slot)
+        base_rot = s.pop("rotate", 0)
+        # gentle per-page tilt so repeated icons read a little differently
+        jitter = (((i * 7 + variant * 13) % 5) - 2) * 4
+        svg = ICON_POOL[(i + variant) % len(ICON_POOL)]
+        h += icon_div(svg, rotate=base_rot + jitter, **s)
+    # sparkles stay constant — theme-neutral accents that tie the pages together
     h += sparkle(top=22, left=200, size=13)
     h += small_sp(top=8,  left=250, size=8)
     h += small_sp(top=30, right=75, size=7)
     h += sparkle(top=16, right=72, size=10, op=0.35)
-    h += icon_div(SKULL,    top=90,  left=4,  size=60, opacity=0.7)
     h += small_sp(top=160, left=6,  size=9)
-    h += icon_div(SUNBURST, top=200, left=8,  size=52, opacity=0.68)
     h += small_sp(top=265, left=12, size=7)
-    h += icon_div(AGAVE,    top=290, left=4,  size=58, opacity=0.7)
-    h += icon_div(HORSESHOE,top=95,  right=4, size=52, opacity=0.72)
     h += small_sp(top=158, right=8, size=9)
-    h += icon_div(BOOTS,    top=200, right=5, size=52, opacity=0.72)
     h += small_sp(top=270, right=14, size=7)
-    h += icon_div(SPUR,     top=310, right=4, size=50, rotate=15, opacity=0.68)
-    h += icon_div(SPUR,     bottom=10, left=6,  size=52, rotate=10, opacity=0.7)
-    h += icon_div(HAT,      bottom=8,  left=70, size=62, opacity=0.73)
-    h += icon_div(WHEEL,    bottom=8,  left=145, size=56)
-    h += icon_div(SKULL,    bottom=8,  right=6,  size=58, opacity=0.7)
     h += sparkle(bottom=55, left=68, size=11, op=0.4)
     h += sparkle(bottom=22, left=210, size=13)
     h += small_sp(bottom=40, right=70, size=8)
@@ -222,7 +239,7 @@ def det(label, value, ph=False):
       </div>'''
 
 def build_page(title, cover_eyebrow, cover_title, eyebrow, script_line, big_name, subtitle,
-               location, blurb, details_html, map_src, map_query, back_href="index.html"):
+               location, blurb, details_html, map_src, map_query, back_href="index.html", variant=0):
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -271,7 +288,7 @@ def build_page(title, cover_eyebrow, cover_title, eyebrow, script_line, big_name
 {reveal_cover(cover_eyebrow, cover_title)}
 <div class="card">
   <div class="border-frame"></div>
-  {build_icons()}
+  {build_icons(variant)}
   <div class="content">
     <p class="eyebrow-text">{eyebrow}</p>
     <p class="script-line">{script_line}</p>
@@ -544,12 +561,13 @@ pages = [
 ]
 
 base = "/home/user/anniversary-trip-website"
-for p in pages:
+for i, p in enumerate(pages):
     html = build_page(
         title=p["title"], cover_eyebrow=p["cover_eyebrow"], cover_title=p["cover_title"],
         eyebrow=p["eyebrow"], script_line=p["script_line"], big_name=p["big_name"],
         subtitle=p["subtitle"], location=p["location"], blurb=p["blurb"],
         details_html=p["details"], map_src=p["map_src"], map_query=p["map_query"],
+        variant=i,
     )
     with open(os.path.join(base, p["file"]), "w") as f:
         f.write(html)
