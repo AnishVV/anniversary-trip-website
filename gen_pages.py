@@ -39,288 +39,190 @@ def small_sp(top=None, bottom=None, left=None, right=None, size=8, op=0.3):
     return f'<div style="{style}">{SMALL_DIAMOND}</div>\n'
 
 def build_icons():
-    icons_html = ""
-    icons_html += icon_div(WHEEL,    top=8,  left=8,  size=58)
-    icons_html += icon_div(SPUR,     top=14, left=72, size=52, rotate=-10)
-    icons_html += icon_div(HAT,      top=8,  left=130, size=65, opacity=0.75)
-    icons_html += icon_div(YUCCA,    top=6,  right=6, size=60)
-    icons_html += sparkle(top=22, left=200, size=13)
-    icons_html += small_sp(top=8,  left=250, size=8)
-    icons_html += small_sp(top=30, right=75, size=7)
-    icons_html += sparkle(top=16, right=72, size=10, op=0.35)
-    icons_html += icon_div(SKULL,    top=90,  left=4,  size=60, opacity=0.7)
-    icons_html += small_sp(top=160, left=6,  size=9)
-    icons_html += icon_div(SUNBURST, top=200, left=8,  size=52, opacity=0.68)
-    icons_html += small_sp(top=265, left=12, size=7)
-    icons_html += icon_div(AGAVE,    top=290, left=4,  size=58, opacity=0.7)
-    icons_html += icon_div(HORSESHOE,top=95,  right=4, size=52, opacity=0.72)
-    icons_html += small_sp(top=158, right=8, size=9)
-    icons_html += icon_div(BOOTS,    top=200, right=5, size=52, opacity=0.72)
-    icons_html += small_sp(top=270, right=14, size=7)
-    icons_html += icon_div(SPUR,     top=310, right=4, size=50, rotate=15, opacity=0.68)
-    icons_html += icon_div(SPUR,     bottom=10, left=6,  size=52, rotate=10, opacity=0.7)
-    icons_html += icon_div(HAT,      bottom=8,  left=70, size=62, opacity=0.73)
-    icons_html += icon_div(WHEEL,    bottom=8,  left=145, size=56)
-    icons_html += icon_div(SKULL,    bottom=8,  right=6,  size=58, opacity=0.7)
-    icons_html += sparkle(bottom=55, left=68, size=11, op=0.4)
-    icons_html += sparkle(bottom=22, left=210, size=13)
-    icons_html += small_sp(bottom=40, right=70, size=8)
-    icons_html += small_sp(bottom=18, left=240, size=7)
-    icons_html += small_sp(top=120, left=68, size=7, op=0.25)
-    icons_html += small_sp(top=145, right=66, size=8, op=0.25)
-    icons_html += small_sp(top=360, left=70, size=7, op=0.25)
-    icons_html += small_sp(top=380, right=68, size=8, op=0.25)
-    return icons_html
+    h = ""
+    h += icon_div(WHEEL,    top=8,  left=8,  size=58)
+    h += icon_div(SPUR,     top=14, left=72, size=52, rotate=-10)
+    h += icon_div(HAT,      top=8,  left=130, size=65, opacity=0.75)
+    h += icon_div(YUCCA,    top=6,  right=6, size=60)
+    h += sparkle(top=22, left=200, size=13)
+    h += small_sp(top=8,  left=250, size=8)
+    h += small_sp(top=30, right=75, size=7)
+    h += sparkle(top=16, right=72, size=10, op=0.35)
+    h += icon_div(SKULL,    top=90,  left=4,  size=60, opacity=0.7)
+    h += small_sp(top=160, left=6,  size=9)
+    h += icon_div(SUNBURST, top=200, left=8,  size=52, opacity=0.68)
+    h += small_sp(top=265, left=12, size=7)
+    h += icon_div(AGAVE,    top=290, left=4,  size=58, opacity=0.7)
+    h += icon_div(HORSESHOE,top=95,  right=4, size=52, opacity=0.72)
+    h += small_sp(top=158, right=8, size=9)
+    h += icon_div(BOOTS,    top=200, right=5, size=52, opacity=0.72)
+    h += small_sp(top=270, right=14, size=7)
+    h += icon_div(SPUR,     top=310, right=4, size=50, rotate=15, opacity=0.68)
+    h += icon_div(SPUR,     bottom=10, left=6,  size=52, rotate=10, opacity=0.7)
+    h += icon_div(HAT,      bottom=8,  left=70, size=62, opacity=0.73)
+    h += icon_div(WHEEL,    bottom=8,  left=145, size=56)
+    h += icon_div(SKULL,    bottom=8,  right=6,  size=58, opacity=0.7)
+    h += sparkle(bottom=55, left=68, size=11, op=0.4)
+    h += sparkle(bottom=22, left=210, size=13)
+    h += small_sp(bottom=40, right=70, size=8)
+    h += small_sp(bottom=18, left=240, size=7)
+    h += small_sp(top=120, left=68, size=7, op=0.25)
+    h += small_sp(top=145, right=66, size=8, op=0.25)
+    h += small_sp(top=360, left=70, size=7, op=0.25)
+    h += small_sp(top=380, right=68, size=8, op=0.25)
+    return h
+
+HAT_SVG_COVER = '''<svg style="width:80px;color:#3a5234;opacity:0.8;display:block;margin:0 auto 1.2rem;" viewBox="0 0 100 65" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="52" rx="46" ry="12"/><path d="M22,52 C22,52 20,18 50,12 C80,18 78,52 78,52"/><path d="M4,51 C12,46 20,52 22,52"/><path d="M78,52 C80,52 88,46 96,51"/><path d="M24,49 C35,43 65,43 76,49"/></svg>'''
+
+REVEAL_CSS = """
+    #reveal-cover {
+      position: fixed; inset: 0; z-index: 1000;
+      background: #cbc4b0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: transform 0.85s cubic-bezier(.77,0,.18,1), opacity 0.7s ease;
+    }
+    #reveal-cover.revealed { transform: translateY(-100%); opacity: 0; }
+    .cover-card {
+      background: #e6ddc8;
+      border: 1px solid rgba(58,82,52,.18);
+      max-width: 310px; width: 88%;
+      padding: 2.8rem 2rem 2.4rem;
+      text-align: center; position: relative;
+      box-shadow: 0 8px 40px rgba(58,82,52,.14);
+    }
+    .cover-eyebrow {
+      font-size: .38rem; letter-spacing: .38em; text-transform: uppercase;
+      color: #3a5234; opacity: .6; margin-bottom: .5rem;
+    }
+    .cover-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.85rem; color: #3a5234; line-height: 1.2; margin-bottom: 1.6rem;
+    }
+    .cover-ornament {
+      display: flex; align-items: center; gap: .5rem; margin-bottom: 1.6rem;
+    }
+    .cover-ornament::before, .cover-ornament::after {
+      content: ''; flex: 1; height: 1px; background: #3a5234; opacity: .22;
+    }
+    .cover-ornament span { font-size: .32rem; color: #3a5234; opacity: .38; letter-spacing: .2em; }
+    #reveal-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: .44rem; letter-spacing: .3em; text-transform: uppercase;
+      color: #e6ddc8; background: #3a5234; border: none;
+      padding: .9rem 2rem; cursor: pointer; width: 100%;
+      transition: background 0.2s, transform 0.12s;
+    }
+    #reveal-btn:hover { background: #2e4029; transform: translateY(-1px); }
+    #reveal-btn:active { transform: scale(0.97); }
+    .cover-sp {
+      position: absolute; color: #3a5234;
+    }
+    #confetti-canvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 2000; display: none;
+    }
+"""
 
 REVEAL_SCRIPT = r"""
 <script>
-(function() {
-  // Confetti
-  var canvas = document.getElementById('confetti-canvas');
-  var ctx = canvas.getContext('2d');
-  var W, H, particles = [], running = false;
-
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+(function(){
+  var canvas=document.getElementById('confetti-canvas');
+  var ctx=canvas.getContext('2d');
+  var W,H,parts=[],running=false;
+  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+  window.addEventListener('resize',resize); resize();
+  var COLS=['#3a5234','#6a9c5e','#c8b060','#e6ddc8','#9a7a3a','#5c8c50','#b8a060','#4a7a40','#8fbc6a','#d4a83a'];
+  function P(x,y){
+    this.x=x; this.y=y;
+    this.vx=(Math.random()-.5)*16;
+    this.vy=-(Math.random()*20+10);
+    this.g=0.6;
+    this.col=COLS[Math.floor(Math.random()*COLS.length)];
+    this.type=Math.floor(Math.random()*3);
+    this.s=Math.random()*9+4;
+    this.r=Math.random()*Math.PI*2;
+    this.rs=(Math.random()-.5)*.28;
+    this.op=1;
+    this.fade=Math.random()*.013+.006;
   }
-  window.addEventListener('resize', resize);
-  resize();
-
-  var COLORS = ['#3a5234','#7a9c6e','#c8b97a','#e6ddc8','#9a7a3a','#5c8c50','#b8a060','#4a7a40'];
-  var SHAPES = ['diamond','rect','circle'];
-
-  function Particle(x, y) {
-    this.x = x;
-    this.y = y;
-    this.vx = (Math.random() - 0.5) * 14;
-    this.vy = -(Math.random() * 18 + 8);
-    this.gravity = 0.55;
-    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    this.shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
-    this.size = Math.random() * 10 + 5;
-    this.rotation = Math.random() * Math.PI * 2;
-    this.rotationSpeed = (Math.random() - 0.5) * 0.3;
-    this.opacity = 1;
-    this.fade = Math.random() * 0.015 + 0.008;
-  }
-
-  Particle.prototype.update = function() {
-    this.vy += this.gravity;
-    this.x += this.vx;
-    this.y += this.vy;
-    this.vx *= 0.99;
-    this.rotation += this.rotationSpeed;
-    this.opacity -= this.fade;
+  P.prototype.tick=function(){
+    this.vy+=this.g; this.x+=this.vx; this.y+=this.vy;
+    this.vx*=.985; this.r+=this.rs; this.op-=this.fade;
   };
-
-  Particle.prototype.draw = function(ctx) {
-    ctx.save();
-    ctx.globalAlpha = Math.max(0, this.opacity);
-    ctx.fillStyle = this.color;
-    ctx.translate(this.x, this.y);
-    ctx.rotate(this.rotation);
-    var s = this.size;
-    if (this.shape === 'diamond') {
-      ctx.beginPath();
-      ctx.moveTo(0, -s); ctx.lineTo(s*0.6, 0);
-      ctx.lineTo(0, s); ctx.lineTo(-s*0.6, 0);
-      ctx.closePath(); ctx.fill();
-    } else if (this.shape === 'rect') {
-      ctx.fillRect(-s/2, -s/4, s, s/2);
+  P.prototype.draw=function(c){
+    c.save(); c.globalAlpha=Math.max(0,this.op);
+    c.fillStyle=this.col; c.translate(this.x,this.y); c.rotate(this.r);
+    var s=this.s;
+    if(this.type===0){
+      c.beginPath(); c.moveTo(0,-s); c.lineTo(s*.55,0); c.lineTo(0,s); c.lineTo(-s*.55,0); c.closePath(); c.fill();
+    } else if(this.type===1){
+      c.fillRect(-s/2,-s/3,s,s*.6);
     } else {
-      ctx.beginPath();
-      ctx.arc(0, 0, s/2, 0, Math.PI*2);
-      ctx.fill();
+      c.beginPath(); c.arc(0,0,s/2,0,Math.PI*2); c.fill();
     }
-    ctx.restore();
+    c.restore();
   };
-
-  function burst(x, y, count) {
-    for (var i = 0; i < count; i++) {
-      particles.push(new Particle(x, y));
+  function burst(x,y,n){ for(var i=0;i<n;i++) parts.push(new P(x,y)); }
+  function loop(){
+    if(!running) return;
+    ctx.clearRect(0,0,W,H);
+    for(var i=parts.length-1;i>=0;i--){
+      parts[i].tick(); parts[i].draw(ctx);
+      if(parts[i].op<=0||parts[i].y>H+60) parts.splice(i,1);
     }
+    if(parts.length>0) requestAnimationFrame(loop);
+    else { running=false; canvas.style.display='none'; }
   }
-
-  function animate() {
-    if (!running) return;
-    ctx.clearRect(0, 0, W, H);
-    for (var i = particles.length - 1; i >= 0; i--) {
-      particles[i].update();
-      particles[i].draw(ctx);
-      if (particles[i].opacity <= 0 || particles[i].y > H + 50) {
-        particles.splice(i, 1);
-      }
-    }
-    if (particles.length > 0) {
-      requestAnimationFrame(animate);
-    } else {
-      running = false;
-      canvas.style.display = 'none';
-    }
+  function fire(x,y){
+    canvas.style.display='block';
+    burst(x,y,70);
+    setTimeout(function(){ burst(W*.15,H*.4,35); },100);
+    setTimeout(function(){ burst(W*.85,H*.4,35); },180);
+    setTimeout(function(){ burst(W*.4,H*.25,45); },300);
+    setTimeout(function(){ burst(W*.6,H*.3,35); },420);
+    if(!running){ running=true; requestAnimationFrame(loop); }
   }
-
-  function launchConfetti(x, y) {
-    canvas.style.display = 'block';
-    // Multi-burst from several points
-    burst(x, y, 60);
-    setTimeout(function() { burst(W * 0.2, H * 0.5, 30); }, 120);
-    setTimeout(function() { burst(W * 0.8, H * 0.5, 30); }, 200);
-    setTimeout(function() { burst(W * 0.5, H * 0.3, 40); }, 350);
-    if (!running) { running = true; requestAnimationFrame(animate); }
-  }
-
-  document.getElementById('reveal-btn').addEventListener('click', function(e) {
-    var rect = e.target.getBoundingClientRect();
-    var cx = rect.left + rect.width / 2;
-    var cy = rect.top + rect.height / 2;
-
-    launchConfetti(cx, cy);
-
-    var cover = document.getElementById('reveal-cover');
+  document.getElementById('reveal-btn').addEventListener('click',function(e){
+    var r=e.target.getBoundingClientRect();
+    fire(r.left+r.width/2, r.top+r.height/2);
+    var cover=document.getElementById('reveal-cover');
     cover.classList.add('revealed');
-
-    setTimeout(function() {
-      cover.style.display = 'none';
-    }, 900);
+    setTimeout(function(){ cover.style.display='none'; },900);
   });
 })();
 </script>
 """
 
-REVEAL_CSS = """
-    /* Reveal cover */
-    #reveal-cover {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: #cbc4b0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.85s cubic-bezier(.77,0,.18,1), opacity 0.7s ease;
-    }
-    #reveal-cover.revealed {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    .cover-card {
-      background: #e6ddc8;
-      border: 1px solid rgba(58,82,52,.18);
-      max-width: 320px;
-      width: 88%;
-      padding: 3rem 2.2rem 2.5rem;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 8px 40px rgba(58,82,52,.12);
-    }
-    .cover-hat {
-      width: 90px;
-      color: #3a5234;
-      opacity: 0.8;
-      margin: 0 auto 1.2rem;
-      display: block;
-    }
-    .cover-eyebrow {
-      font-size: .4rem;
-      letter-spacing: .38em;
-      text-transform: uppercase;
-      color: #3a5234;
-      opacity: .6;
-      margin-bottom: .5rem;
-    }
-    .cover-title {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #3a5234;
-      line-height: 1.2;
-      margin-bottom: .3rem;
-    }
-    .cover-sub {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1rem;
-      color: #3a5234;
-      opacity: .55;
-      margin-bottom: 1.8rem;
-    }
-    .cover-ornament {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      margin-bottom: 1.8rem;
-    }
-    .cover-ornament::before, .cover-ornament::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #3a5234;
-      opacity: .22;
-    }
-    .cover-ornament span {
-      font-size: .35rem;
-      color: #3a5234;
-      opacity: .4;
-      letter-spacing: .2em;
-    }
-    #reveal-btn {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: .48rem;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: #e6ddc8;
-      background: #3a5234;
-      border: none;
-      padding: .85rem 2rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      width: 100%;
-    }
-    #reveal-btn:hover {
-      background: #2e4029;
-      transform: translateY(-1px);
-    }
-    #reveal-btn:active {
-      transform: scale(0.97);
-    }
-    .cover-sparkle {
-      position: absolute;
-      color: #3a5234;
-      opacity: 0.3;
-    }
-    #confetti-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 2000;
-      display: none;
-    }
-"""
+def sp(t,b,l,r,s,o):
+    style=""
+    if t is not None: style+=f"top:{t}px;"
+    if b is not None: style+=f"bottom:{b}px;"
+    if l is not None: style+=f"left:{l}px;"
+    if r is not None: style+=f"right:{r}px;"
+    return f'<div class="cover-sp" style="width:{s}px;height:{s}px;opacity:{o};{style}"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>'
 
-HAT_COVER_SVG = '''<svg class="cover-hat" viewBox="0 0 100 65" fill="none" stroke="currentColor" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg"><ellipse cx="50" cy="52" rx="46" ry="12"/><path d="M22,52 C22,52 20,18 50,12 C80,18 78,52 78,52"/><path d="M4,51 C12,46 20,52 22,52"/><path d="M78,52 C80,52 88,46 96,51"/><path d="M24,49 C35,43 65,43 76,49"/><path d="M32,35 C38,28 62,28 68,35" stroke-width="1" opacity="0.6"/></svg>'''
-
-def reveal_cover(script_line, big_name):
-    sp = lambda t,b,l,r,s,o: f'<div class="cover-sparkle" style="width:{s}px;height:{s}px;{"top:"+str(t)+"px;" if t is not None else ""}{"bottom:"+str(b)+"px;" if b is not None else ""}{"left:"+str(l)+"px;" if l is not None else ""}{"right:"+str(r)+"px;" if r is not None else ""}opacity:{o}"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z"/></svg></div>'
-    return f'''
-  <div id="reveal-cover">
+def reveal_cover(cover_eyebrow, cover_title):
+    return f'''  <div id="reveal-cover">
     <canvas id="confetti-canvas"></canvas>
     <div class="cover-card">
-      {sp(12,None,12,None,10,0.35)}{sp(15,None,None,14,8,0.25)}{sp(None,12,14,None,9,0.3)}{sp(None,14,None,12,11,0.35)}{sp(None,None,None,None,7,0.2)}
-      {HAT_COVER_SVG}
-      <p class="cover-eyebrow">Nashville, Tennessee</p>
-      <p class="cover-title">{script_line}</p>
-      <p class="cover-sub">{big_name}</p>
+      {sp(10,None,10,None,9,0.3)}{sp(12,None,None,12,7,0.22)}{sp(None,10,12,None,8,0.28)}{sp(None,12,None,10,10,0.32)}{sp(None,None,None,None,6,0.18)}
+      {HAT_SVG_COVER}
+      <p class="cover-eyebrow">{cover_eyebrow}</p>
+      <p class="cover-title">{cover_title}</p>
       <div class="cover-ornament"><span>&#9670; &nbsp; &#9670; &nbsp; &#9670;</span></div>
-      <button id="reveal-btn">Tap to Reveal &#9670;</button>
+      <button id="reveal-btn">Tap to Reveal &nbsp;&#9670;</button>
     </div>
   </div>'''
 
-def build_page(title, eyebrow, script_line, big_name, subtitle, location, details_html, map_src, map_query, back_href="index.html"):
-    icons_html = build_icons()
-    cover_html = reveal_cover(script_line, big_name)
+def det(label, value, ph=False):
+    pc = ' ph' if ph else ''
+    return f'''      <div class="detail">
+        <span class="detail-label">{label}</span>
+        <div class="detail-value{pc}">{value}</div>
+      </div>'''
 
+def build_page(title, cover_eyebrow, cover_title, eyebrow, script_line, big_name, subtitle,
+               location, blurb, details_html, map_src, map_query, back_href="index.html"):
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -331,182 +233,45 @@ def build_page(title, eyebrow, script_line, big_name, subtitle, location, detail
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    :root {{ --ink: #3a5234; --parchment: #e6ddc8; }}
-    body {{
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #cbc4b0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 1.5rem 1rem 3rem;
-    }}
-    .card {{
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-      background: var(--parchment);
-      min-height: 520px;
-      overflow: hidden;
-    }}
-    .card::after {{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 10;
-    }}
-    .content {{
-      position: relative;
-      z-index: 5;
-      text-align: center;
-      padding: 58px 50px 60px;
-    }}
-    .border-frame {{
-      position: absolute;
-      inset: 5px;
-      border: 1px solid rgba(58,82,52,.18);
-      pointer-events: none;
-      z-index: 6;
-    }}
-    .eyebrow-text {{
-      font-size: .42rem;
-      letter-spacing: .38em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .7;
-      margin-bottom: .6rem;
-    }}
-    .script-line {{
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.55rem;
-      color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: .1rem;
-    }}
-    .big-name {{
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      color: var(--ink);
-      line-height: 1.05;
-      margin-bottom: .5rem;
-    }}
-    .venue-sub {{
-      font-size: .48rem;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .65;
-      margin-bottom: .2rem;
-    }}
-    .location-text {{
-      font-family: 'Dancing Script', cursive;
-      font-size: .95rem;
-      color: var(--ink);
-      opacity: .6;
-      margin-bottom: 1rem;
-    }}
-    .ornament {{
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      margin: .9rem 0;
-    }}
-    .ornament::before, .ornament::after {{
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--ink);
-      opacity: .25;
-    }}
-    .ornament span {{
-      font-size: .38rem;
-      color: var(--ink);
-      opacity: .4;
-      letter-spacing: .25em;
-    }}
-    .details {{ text-align: left; margin-top: .5rem; }}
-    .detail {{ padding: .65rem 0; border-bottom: 1px solid rgba(58,82,52,.1); }}
-    .detail:last-child {{ border-bottom: none; }}
-    .detail-label {{
-      display: block;
-      font-size: .38rem;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .6;
-      margin-bottom: .2rem;
-    }}
-    .detail-value {{
-      font-size: .85rem;
-      line-height: 1.55;
-      color: var(--ink);
-    }}
-    .detail-value.ph {{ opacity: .4; font-style: italic; }}
-    .map-section {{ margin-top: 1.4rem; }}
-    .map-label {{
-      font-size: .38rem;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .5;
-      text-align: center;
-      margin-bottom: .6rem;
-    }}
-    .map-embed {{
-      width: 100%;
-      height: 160px;
-      border: 1px solid rgba(58,82,52,.2);
-      display: block;
-      filter: sepia(20%) saturate(.7) brightness(1.05) hue-rotate(20deg);
-    }}
-    .map-link {{
-      display: block;
-      text-align: center;
-      margin-top: .5rem;
-      font-size: .38rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .55;
-      text-decoration: none;
-    }}
-    .map-link:hover {{ opacity: .9; }}
-    .footer {{
-      margin-top: 1.2rem;
-      padding-top: .9rem;
-      border-top: 1px solid rgba(58,82,52,.15);
-      text-align: center;
-    }}
-    .back-link {{
-      font-size: .38rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: .5;
-      text-decoration: none;
-    }}
-    .back-link:hover {{ opacity: .85; }}
-    .tagline {{
-      font-family: 'Dancing Script', cursive;
-      font-size: .85rem;
-      color: var(--ink);
-      opacity: .35;
-      margin-top: .3rem;
-    }}
+    *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0;}}
+    :root{{--ink:#3a5234;--parchment:#e6ddc8;}}
+    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#cbc4b0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:1.5rem 1rem 3rem;}}
+    .card{{position:relative;width:100%;max-width:440px;background:var(--parchment);min-height:520px;overflow:hidden;}}
+    .card::after{{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");pointer-events:none;z-index:10;}}
+    .content{{position:relative;z-index:5;text-align:center;padding:58px 50px 60px;}}
+    .border-frame{{position:absolute;inset:5px;border:1px solid rgba(58,82,52,.18);pointer-events:none;z-index:6;}}
+    .eyebrow-text{{font-size:.42rem;letter-spacing:.38em;text-transform:uppercase;color:var(--ink);opacity:.7;margin-bottom:.6rem;}}
+    .script-line{{font-family:'Dancing Script',cursive;font-size:1.55rem;color:var(--ink);line-height:1.15;margin-bottom:.1rem;}}
+    .big-name{{font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--ink);line-height:1.05;margin-bottom:.5rem;}}
+    .venue-sub{{font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);opacity:.62;margin-bottom:.2rem;}}
+    .location-text{{font-family:'Dancing Script',cursive;font-size:.92rem;color:var(--ink);opacity:.58;margin-bottom:.8rem;}}
+    .ornament{{display:flex;align-items:center;gap:.5rem;margin:.8rem 0;}}
+    .ornament::before,.ornament::after{{content:'';flex:1;height:1px;background:var(--ink);opacity:.22;}}
+    .ornament span{{font-size:.36rem;color:var(--ink);opacity:.38;letter-spacing:.22em;}}
+    .blurb{{font-family:'Dancing Script',cursive;font-size:1.05rem;line-height:1.65;color:var(--ink);opacity:.78;margin-bottom:.9rem;text-align:center;}}
+    .details{{text-align:left;margin-top:.4rem;}}
+    .detail{{padding:.6rem 0;border-bottom:1px solid rgba(58,82,52,.1);}}
+    .detail:last-child{{border-bottom:none;}}
+    .detail-label{{display:block;font-size:.36rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink);opacity:.58;margin-bottom:.2rem;}}
+    .detail-value{{font-size:.83rem;line-height:1.55;color:var(--ink);}}
+    .detail-value.ph{{opacity:.38;font-style:italic;}}
+    .map-section{{margin-top:1.3rem;}}
+    .map-label{{font-size:.36rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);opacity:.48;text-align:center;margin-bottom:.55rem;}}
+    .map-embed{{width:100%;height:155px;border:1px solid rgba(58,82,52,.18);display:block;filter:sepia(20%) saturate(.7) brightness(1.05) hue-rotate(20deg);}}
+    .map-link{{display:block;text-align:center;margin-top:.48rem;font-size:.36rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);opacity:.52;text-decoration:none;}}
+    .map-link:hover{{opacity:.88;}}
+    .footer{{margin-top:1.1rem;padding-top:.8rem;border-top:1px solid rgba(58,82,52,.14);text-align:center;}}
+    .back-link{{font-size:.36rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.46;text-decoration:none;}}
+    .back-link:hover{{opacity:.82;}}
+    .tagline{{font-family:'Dancing Script',cursive;font-size:.82rem;color:var(--ink);opacity:.32;margin-top:.3rem;}}
 {REVEAL_CSS}
   </style>
 </head>
 <body>
-{cover_html}
+{reveal_cover(cover_eyebrow, cover_title)}
 <div class="card">
   <div class="border-frame"></div>
-  {icons_html}
+  {build_icons()}
   <div class="content">
     <p class="eyebrow-text">{eyebrow}</p>
     <p class="script-line">{script_line}</p>
@@ -514,14 +279,14 @@ def build_page(title, eyebrow, script_line, big_name, subtitle, location, detail
     <p class="venue-sub">{subtitle}</p>
     <p class="location-text">{location}</p>
     <div class="ornament"><span>&#9670; &nbsp; &#9670; &nbsp; &#9670;</span></div>
+    <p class="blurb">{blurb}</p>
+    <div class="ornament"><span>&#9670; &nbsp; &#9670; &nbsp; &#9670;</span></div>
     <div class="details">
 {details_html}
     </div>
     <div class="map-section">
       <p class="map-label">How to get there</p>
-      <iframe class="map-embed"
-        src="{map_src}"
-        title="Map" loading="lazy"></iframe>
+      <iframe class="map-embed" src="{map_src}" title="Map" loading="lazy"></iframe>
       <a class="map-link" href="https://www.google.com/maps/search/?api=1&query={map_query}" target="_blank" rel="noopener">Open in Google Maps &#8599;</a>
     </div>
     <footer class="footer">
@@ -534,33 +299,249 @@ def build_page(title, eyebrow, script_line, big_name, subtitle, location, detail
 </body>
 </html>'''
 
-def det(label, value, ph=False):
-    ph_class = ' ph' if ph else ''
-    return f'''      <div class="detail">
-        <span class="detail-label">{label}</span>
-        <div class="detail-value{ph_class}">{value}</div>
-      </div>'''
-
-BASE_MAP = "https://www.openstreetmap.org/export/embed.html?bbox=-86.8278%2C36.1488%2C-86.7578%2C36.1788&layer=mapnik&marker=36.1627%2C-86.7816"
+# Map helpers
+def osm(lat, lon, zoom=0.035):
+    w = zoom * 1.5
+    h = zoom
+    return f"https://www.openstreetmap.org/export/embed.html?bbox={lon-w:.4f},{lat-h:.4f},{lon+w:.4f},{lat+h:.4f}&layer=mapnik&marker={lat:.4f},{lon:.4f}"
 
 pages = [
-    dict(file="friday-dinner.html", title="Friday Dinner — Nashville", eyebrow="Dinner  ·  Friday Evening", script_line="An Evening at", big_name="The Capitol Grille", subtitle="The Hermitage Hotel", location="Downtown Nashville, Tennessee", details='\n'.join([det("When","Friday, 7:30 in the evening"),det("Where","231 6th Ave N<br>Nashville, TN 37219"),det("Reservation","Under Williams &nbsp;·&nbsp; Conf. #CG-4891"),det("Dress","Smart casual — look nice"),det("Notes","Valet at the entrance. Award-winning Southern cuisine and wine list.")]), map_src=BASE_MAP, map_query="231+6th+Ave+N+Nashville+TN"),
-    dict(file="saturday-brunch.html", title="Saturday Brunch — Nashville", eyebrow="Brunch  ·  Saturday Morning", script_line="Morning biscuits at", big_name="Biscuit Love", subtitle="Bonuts &amp; Southern Brunch · The Gulch", location="Nashville, Tennessee", details='\n'.join([det("When","Saturday, 10:00 in the morning"),det("Where","316 11th Ave S<br>Nashville, TN 37203"),det("Reservation","Walk-in — aim to arrive by 9:45"),det("Notes","Order the Bonuts — biscuit donuts with lemon mascarpone. Weekend waits move quickly.")]), map_src=BASE_MAP, map_query="316+11th+Ave+S+Nashville+TN"),
-    dict(file="dance-class.html", title="Dance Class — Nashville", eyebrow="Activity  ·  Saturday Afternoon", script_line="Put on your boots for", big_name="Two-Step &amp; Line Dancing", subtitle="Nashville Dance Studios", location="Nashville, Tennessee", details='\n'.join([det("When","Saturday, 2:00 in the afternoon"),det("Where","1805 Division St<br>Nashville, TN 37203"),det("Style","Country two-step &amp; classic line dances"),det("Duration","90 minutes"),det("What to Wear","Boots encouraged — comfortable clothes you can move in"),det("Notes","No experience needed — total beginners more than welcome!")]), map_src=BASE_MAP, map_query="1805+Division+St+Nashville+TN"),
-    dict(file="saturday-dinner.html", title="Saturday Dinner — Nashville", eyebrow="Dinner  ·  Saturday Evening", script_line="Dinner with a view at", big_name="Marsh House", subtitle="Thompson Nashville · The Gulch", location="Nashville, Tennessee", details='\n'.join([det("When","Saturday, 7:00 in the evening"),det("Where","401 11th Ave S<br>Nashville, TN 37203"),det("Reservation","Under Williams &nbsp;·&nbsp; Conf. #MH-7723"),det("Dress","Smart casual"),det("Notes","Rooftop terrace with stunning skyline views. Ask for the chilled seafood tower.")]), map_src=BASE_MAP, map_query="401+11th+Ave+S+Nashville+TN"),
-    dict(file="concert.html", title="Concert — Nashville", eyebrow="Live Music  ·  Saturday Night", script_line="A night at", big_name="Live at the Ryman", subtitle="Ryman Auditorium", location="Downtown Nashville, Tennessee", details='\n'.join([det("When","Saturday — doors 7:00 PM, show 8:00 PM"),det("Venue","116 5th Ave N<br>Nashville, TN 37219"),det("Tickets","Digital — check your email for QR codes"),det("Bag Policy","Small clutch or clear bag only"),det("Getting There","Rideshare recommended — parking very limited Saturday nights"),det("Notes","\"The Mother Church of Country Music.\" Soak in every moment.")]), map_src=BASE_MAP, map_query="116+5th+Ave+N+Nashville+TN"),
-    dict(file="sunday-brunch.html", title="Sunday Brunch — Nashville", eyebrow="Brunch  ·  Sunday Morning", script_line="A lazy morning at", big_name="The Southern", subtitle="Southern Comfort &amp; Cocktails", location="Downtown Nashville, Tennessee", details='\n'.join([det("When","Sunday, 11:00 in the morning"),det("Where","150 3rd Ave N<br>Nashville, TN 37201"),det("Reservation","Under Williams &nbsp;·&nbsp; Conf. #TS-0291"),det("Notes","The house bloody mary is non-negotiable. Try the shrimp and grits.")]), map_src=BASE_MAP, map_query="150+3rd+Ave+N+Nashville+TN"),
-    dict(file="lodging.html", title="Lodging — Nashville", eyebrow="Your Stay  ·  Fri – Sun", script_line="Home for the weekend at", big_name="The Noelle", subtitle="Curio Collection by Hilton", location="Downtown Nashville, Tennessee", details='\n'.join([det("Address","200 4th Ave N<br>Nashville, TN 37219"),det("Check-in","Friday from 3:00 PM"),det("Check-out","Sunday by 11:00 AM"),det("WiFi","NoelleGuest &nbsp;/&nbsp; nashville24"),det("Parking","Valet, $45/night — contact concierge on arrival"),det("Notes","Rooftop bar on the 25th floor — don't miss sunset. Steps from Broadway.")]), map_src=BASE_MAP, map_query="200+4th+Ave+N+Nashville+TN"),
-    dict(file="sunday-lodging.html", title="Sunday Lodging — Nashville", eyebrow="Your Stay  ·  Sunday Night", script_line="Rest your boots at", big_name="Graduate Nashville", subtitle="Vanderbilt / Music Row", location="West End, Nashville, Tennessee", details='\n'.join([det("Address","101 20th Ave N<br>Nashville, TN 37203"),det("Check-in","Sunday from 3:00 PM"),det("Check-out","Monday by 12:00 noon"),det("WiFi","GraduateGuest &nbsp;/&nbsp; welcome24"),det("Parking","On-site garage, $30/night"),det("Notes","Pool open until 10 PM. Walking distance to Music Row and Vanderbilt.")]), map_src=BASE_MAP, map_query="101+20th+Ave+N+Nashville+TN"),
-    dict(file="extra-1.html", title="Extra — Nashville", eyebrow="Nashville", script_line="Coming up next:", big_name="A Surprise", subtitle="Nashville, Tennessee", location="Nashville, Tennessee", details='\n'.join([det("When","Date &amp; time to be added",ph=True),det("Where","Address to be added",ph=True),det("Details","Details to follow",ph=True),det("Notes","Notes to follow",ph=True)]), map_src=BASE_MAP, map_query="Nashville+TN"),
-    dict(file="extra-2.html", title="Extra — Nashville", eyebrow="Nashville", script_line="Coming up next:", big_name="A Surprise", subtitle="Nashville, Tennessee", location="Nashville, Tennessee", details='\n'.join([det("When","Date &amp; time to be added",ph=True),det("Where","Address to be added",ph=True),det("Details","Details to follow",ph=True),det("Notes","Notes to follow",ph=True)]), map_src=BASE_MAP, map_query="Nashville+TN"),
-    dict(file="extra-3.html", title="Extra — Nashville", eyebrow="Nashville", script_line="Coming up next:", big_name="A Surprise", subtitle="Nashville, Tennessee", location="Nashville, Tennessee", details='\n'.join([det("When","Date &amp; time to be added",ph=True),det("Where","Address to be added",ph=True),det("Details","Details to follow",ph=True),det("Notes","Notes to follow",ph=True)]), map_src=BASE_MAP, map_query="Nashville+TN"),
+    dict(
+        file="friday-dinner.html",
+        title="Friday Night — House of Cards",
+        cover_eyebrow="Friday Night · Nashville",
+        cover_title="Your first night in Music City awaits...",
+        eyebrow="Dinner  ·  Friday Night",
+        script_line="Kicking off the trip at",
+        big_name="House of Cards",
+        subtitle="Sports Bar & Dinner",
+        location="Nashville, Tennessee",
+        blurb="You made it. Nashville is officially on. House of Cards is where the weekend begins — good drinks, big screens, and the whole city buzzing around you. Tonight's the warmup act.",
+        details='\n'.join([
+            det("When", "Friday, 9:00 PM"),
+            det("Vibe", "Sports bar — casual, lively, fun"),
+            det("Notes", "Fly in at 6:40 PM so you'll have plenty of time to drop bags and settle in. No pressure — just show up and enjoy."),
+        ]),
+        map_src=osm(36.1627, -86.7816),
+        map_query="House+of+Cards+Nashville+TN",
+    ),
+    dict(
+        file="saturday-brunch.html",
+        title="Saturday Brunch — Milk & Honey",
+        cover_eyebrow="Saturday Morning · Nashville",
+        cover_title="Rise &amp; shine — brunch awaits...",
+        eyebrow="Brunch  ·  Saturday Morning",
+        script_line="Morning biscuits at",
+        big_name="Milk &amp; Honey",
+        subtitle="Southern Brunch · Nashville",
+        location="Nashville, Tennessee",
+        blurb="Nashville's most-loved brunch spot. The honey butter biscuits are the stuff of legend, and the bloody marys make a serious case for best in town. Come hungry — this is not the morning to hold back.",
+        details='\n'.join([
+            det("When", "Saturday, 11:00 AM"),
+            det("Where", "320 11th Ave S (The Gulch)<br>Nashville, TN 37203"),
+            det("Heads Up", "Biscuit Love is right around the corner at 316 11th Ave S if the wait is long — both are excellent"),
+            det("Order", "Honey butter biscuits. Trust us."),
+        ]),
+        map_src=osm(36.1527, -86.7876),
+        map_query="Milk+and+Honey+Nashville+TN",
+    ),
+    dict(
+        file="dance-class.html",
+        title="Line Dancing — Stomping Grounds",
+        cover_eyebrow="Saturday Afternoon · Nashville",
+        cover_title="Time to put on your dancing boots...",
+        eyebrow="Activity  ·  Saturday Afternoon",
+        script_line="Two-stepping at",
+        big_name="Stomping Grounds",
+        subtitle="Line Dancing Lesson · Nashville",
+        location="Nashville, Tennessee",
+        blurb="Y'all are about to become line dancers — and trust us, you'll want these moves for Station Inn tonight. Stomping Grounds will have you two-stepping before you know what hit you. No experience required. Just show up ready to stomp and laugh.",
+        details='\n'.join([
+            det("When", "Saturday, 2:00 PM"),
+            det("Reservation", "(832) 466-8750"),
+            det("Duration", "~1 hour"),
+            det("What to Wear", "Boots if you've got 'em — comfortable clothes you can move in"),
+            det("After", "Riverfront Park at 3 PM, then back to the hotel by 3:30–4 PM to freshen up"),
+        ]),
+        map_src=osm(36.1560, -86.7816),
+        map_query="Stomping+Grounds+Dance+Studio+Nashville+TN",
+    ),
+    dict(
+        file="saturday-dinner.html",
+        title="Saturday Dinner — Zaytinya",
+        cover_eyebrow="Saturday Evening · Nashville",
+        cover_title="Dinner before the main event...",
+        eyebrow="Dinner  ·  Saturday Evening",
+        script_line="Small plates &amp; big flavors at",
+        big_name="Zaytinya",
+        subtitle="Chef José Andrés · Thompson Nashville",
+        location="The Gulch, Nashville",
+        blurb="Chef José Andrés brings his legendary Mediterranean small plates to Music City, and it's as good as it sounds. Order everything that looks interesting — mezes are made for sharing. Perfect fuel before Station Inn.",
+        details='\n'.join([
+            det("When", "Saturday, 6:00 PM"),
+            det("Where", "401 11th Ave S (Thompson Nashville)<br>Nashville, TN 37203"),
+            det("Style", "Mediterranean small plates — order generously"),
+            det("Note", "Save room for Station Inn — you're going to want to be comfortable for the show"),
+        ]),
+        map_src=osm(36.1497, -86.7876),
+        map_query="Zaytinya+Nashville+TN",
+    ),
+    dict(
+        file="concert.html",
+        title="Station Inn — Saturday Night",
+        cover_eyebrow="Saturday Night · Nashville",
+        cover_title="The real Nashville is waiting...",
+        eyebrow="Live Music  ·  Saturday Night",
+        script_line="An unforgettable night at",
+        big_name="Station Inn",
+        subtitle="Nashville's Home of Bluegrass · Est. 1974",
+        location="The Gulch, Nashville",
+        blurb="Wooden chairs. Cold beer. No frills. The Station Inn has been the beating heart of Nashville's roots music scene since 1974 — and it shows, in the absolute best way. This is the real thing. You'll leave different.",
+        details='\n'.join([
+            det("When", "Saturday, 8:00 PM"),
+            det("Where", "402 12th Ave S<br>Nashville, TN 37203"),
+            det("Tickets", "Pay at the door — cash welcomed"),
+            det("Vibe", "Intimate, no-frills, completely authentic"),
+            det("Pro Tip", "Arrive a little early for a good seat. Leave whenever you'd like — no pressure."),
+            det("After", "Dessert options in The Gulch between here and the hotel"),
+        ]),
+        map_src=osm(36.1477, -86.7930),
+        map_query="Station+Inn+Nashville+TN",
+    ),
+    dict(
+        file="sunday-brunch.html",
+        title="Sunday Brunch — Nashville",
+        cover_eyebrow="Sunday Morning · Nashville",
+        cover_title="One last Nashville morning...",
+        eyebrow="Brunch  ·  Sunday",
+        script_line="A slow morning at",
+        big_name="Milk &amp; Honey",
+        subtitle="Or Biscuit Love — your call",
+        location="Nashville, Tennessee",
+        blurb="The last morning deserves the full treatment. Milk &amp; Honey for those biscuits again, or Biscuit Love for the legendary Bonuts. Either way, order the most indulgent thing on the menu. You've absolutely earned it.",
+        details='\n'.join([
+            det("When", "Sunday, 12:00 PM"),
+            det("Option A", "Milk &amp; Honey — 320 11th Ave S, The Gulch"),
+            det("Option B", "Biscuit Love — 316 11th Ave S, The Gulch<br><em style='font-size:.8em;opacity:.7'>Famous for their Bonuts — biscuit donuts with lemon mascarpone</em>"),
+            det("Vibe", "Take it slow — no agenda for the morning"),
+        ]),
+        map_src=osm(36.1527, -86.7876),
+        map_query="Milk+and+Honey+Nashville+TN+Gulch",
+    ),
+    dict(
+        file="lodging.html",
+        title="Your Hotel — Caption by Hyatt Nashville",
+        cover_eyebrow="Your Home Base · Nashville",
+        cover_title="Home for the weekend...",
+        eyebrow="Your Stay  ·  Fri – Mon",
+        script_line="Settle in at",
+        big_name="Caption by Hyatt",
+        subtitle="Nashville, The Gulch",
+        location="Nashville, Tennessee",
+        blurb="Modern, comfortable, and perfectly planted in The Gulch — steps from everything you'll be doing this weekend. Drop your bags, take a breath, and get back out there. Nashville is waiting.",
+        details='\n'.join([
+            det("Check-in", "Friday from 3:00 PM"),
+            det("Check-out", "Monday — confirm with hotel"),
+            det("Location", "The Gulch — central to everything on the itinerary"),
+            det("Access", "Front desk check-in — photo ID required"),
+            det("Note", "Great home base for walking to Zaytinya, Station Inn, Milk &amp; Honey &amp; dessert spots"),
+        ]),
+        map_src=osm(36.1510, -86.7900),
+        map_query="Caption+by+Hyatt+Nashville+TN",
+    ),
+    dict(
+        file="sunday-lodging.html",
+        title="Car Rental — Sunday",
+        cover_eyebrow="Sunday · Getting Around",
+        cover_title="Time to hit the open road...",
+        eyebrow="Logistics  ·  Sunday",
+        script_line="Freedom on four wheels —",
+        big_name="Car Rental",
+        subtitle="Pick up Sunday · Return Monday",
+        location="Nashville, Tennessee",
+        blurb="Pick up the car Sunday and Monday is entirely yours. Scenic drives, day trips, or just the freedom to go wherever sounds good without calling an Uber. Nashville's countryside is beautiful — take advantage of it.",
+        details='\n'.join([
+            det("When", "Pick up Sunday — confirm your reservation time"),
+            det("Return", "Monday before you head to the airport"),
+            det("Monday Ideas", "Music Row walking tour · Cheekwood Botanical Garden · Centennial Park · Hattie B's Hot Chicken · Percy Warner Park"),
+            det("Note", "Nashville traffic can be unpredictable — leave extra time for Monday's departure"),
+        ]),
+        map_src=osm(36.1627, -86.7816),
+        map_query="Car+Rental+Nashville+TN+Airport",
+    ),
+    dict(
+        file="extra-1.html",
+        title="Riverfront Park — Saturday",
+        cover_eyebrow="Saturday · 3 PM",
+        cover_title="A little detour worth taking...",
+        eyebrow="A Quick Stop  ·  Saturday",
+        script_line="Breathe it in at",
+        big_name="Riverfront Park",
+        subtitle="Along the Cumberland River",
+        location="Downtown Nashville, Tennessee",
+        blurb="A perfect 20–30 minute reset between the dance class and the evening ahead. Walk along the Cumberland River, take in the skyline, snap the inevitable bridge photo. This is the pause that makes the rest of the night better.",
+        details='\n'.join([
+            det("When", "Saturday, around 3:00 PM"),
+            det("Where", "1 Riverfront Park, Nashville TN 37201<br>(Along the Cumberland River, downtown)"),
+            det("Duration", "As long as you want — 20–30 minutes is plenty"),
+            det("After", "Head back to the hotel by 3:30–4 PM to freshen up before Zaytinya"),
+            det("Don't Miss", "The Pedestrian Bridge views — best skyline shot in the city"),
+        ]),
+        map_src=osm(36.1627, -86.7716),
+        map_query="Riverfront+Park+Nashville+TN",
+    ),
+    dict(
+        file="extra-2.html",
+        title="Dessert in The Gulch",
+        cover_eyebrow="Saturday Night · After Station Inn",
+        cover_title="End the night on something sweet...",
+        eyebrow="Late Night  ·  The Gulch",
+        script_line="One last sweet stop —",
+        big_name="Dessert Route",
+        subtitle="Between Station Inn &amp; the Hotel",
+        location="The Gulch, Nashville",
+        blurb="The walk from Station Inn back to the hotel takes you right through the heart of The Gulch. A few excellent options for ending the night sweet — pick whichever sounds right for the mood.",
+        details='\n'.join([
+            det("Option A", "<strong>Jeni's Splendid Ice Creams</strong><br>Tennessee salted caramel is the move"),
+            det("Option B", "<strong>Five Daughters Bakery</strong><br>100-layer donuts that are absolutely worth it"),
+            det("Option C", "<strong>Bang Candy Company</strong><br>Handmade marshmallows &amp; candy — wildly fun"),
+            det("Vibe", "Walk it, pick one (or two), and savor the last hours of Saturday in Nashville"),
+        ]),
+        map_src=osm(36.1497, -86.7880),
+        map_query="Jeni%27s+Ice+Cream+Nashville+TN+Gulch",
+    ),
+    dict(
+        file="extra-3.html",
+        title="Monday — Free Day",
+        cover_eyebrow="Monday · Nashville",
+        cover_title="Nashville is all yours today...",
+        eyebrow="Free Day  ·  Monday",
+        script_line="No plans, no agenda —",
+        big_name="Free Day",
+        subtitle="Nashville, Tennessee",
+        location="Nashville, Tennessee",
+        blurb="No reservations. No schedule. Just Nashville and whatever sounds good. Some of the best moments of any trip happen when you stop trying to have them — wander, discover, and enjoy your last day in Music City.",
+        details='\n'.join([
+            det("Ideas", "Music Row walking tour · Centennial Park &amp; the Parthenon · Cheekwood Botanical Garden · 12 South neighborhood · East Nashville stroll"),
+            det("Eats", "Hattie B's Hot Chicken (go spicy) · Pepperfire Hot Chicken · Mas Tacos Por Favor"),
+            det("If You're Feeling It", "Day trip to Franklin (30 min) — beautiful historic downtown and great vintage shops"),
+            det("Departure", "Leave enough time — Nashville airport can get busy on Mondays"),
+        ]),
+        map_src=osm(36.1627, -86.7816),
+        map_query="Nashville+Tennessee",
+    ),
 ]
 
 base = "/home/user/anniversary-trip-website"
 for p in pages:
-    html = build_page(title=p["title"],eyebrow=p["eyebrow"],script_line=p["script_line"],big_name=p["big_name"],subtitle=p["subtitle"],location=p["location"],details_html=p["details"],map_src=p["map_src"],map_query=p["map_query"])
+    html = build_page(
+        title=p["title"], cover_eyebrow=p["cover_eyebrow"], cover_title=p["cover_title"],
+        eyebrow=p["eyebrow"], script_line=p["script_line"], big_name=p["big_name"],
+        subtitle=p["subtitle"], location=p["location"], blurb=p["blurb"],
+        details_html=p["details"], map_src=p["map_src"], map_query=p["map_query"],
+    )
     with open(os.path.join(base, p["file"]), "w") as f:
         f.write(html)
     print(f"Wrote {p['file']}")
+
 print("Done.")
