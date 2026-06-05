@@ -441,7 +441,7 @@ pages = [
         title="Your Hotel — Caption by Hyatt Nashville",
         cover_eyebrow="Your Home Base · Nashville",
         cover_title="Home for the weekend...",
-        eyebrow="Your Stay  ·  Fri – Mon",
+        eyebrow="Your Stay  ·  Fri – Sun",
         script_line="Settle in at",
         big_name="Caption by Hyatt",
         subtitle="Nashville, The Gulch",
@@ -449,7 +449,7 @@ pages = [
         blurb="Modern, comfortable, and perfectly planted in The Gulch — steps from everything you'll be doing this weekend. Drop your bags, take a breath, and get back out there. Nashville is waiting.",
         details='\n'.join([
             det("Check-in", "Friday from 3:00 PM"),
-            det("Check-out", "Monday — confirm with hotel"),
+            det("Check-out", "Sunday — confirm with hotel"),
             det("Where", "118 12th Ave S<br>Nashville, TN 37203"),
             det("Location", "The Gulch — central to everything on the itinerary"),
             det("Access", "Front desk check-in — photo ID required"),
