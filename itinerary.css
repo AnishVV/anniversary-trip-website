@@ -70,7 +70,7 @@ body{
 /* ── TRAIL ── */
 .trail-wrap{
   max-width:500px;margin:0 auto;
-  padding:1.6rem 1rem .8rem;
+  padding:1.6rem 1.2rem .8rem;
   position:relative;
 }
 .trail-wrap::before{
@@ -119,10 +119,11 @@ body{
 
 /* ── CARD ── */
 .stop-card{
-  width:200px;background:var(--parchment);
+  flex:1 1 auto;max-width:200px;min-width:0;
+  background:var(--parchment);
   padding:.82rem .9rem .75rem;
   box-shadow:0 4px 16px rgba(58,82,52,.12);
-  position:relative;flex-shrink:0;
+  position:relative;
   display:block;text-decoration:none;
 }
 .stop-card::before{
