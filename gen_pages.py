@@ -489,7 +489,7 @@ pages = [
         blurb="Trade the Nashville skyline for Tennessee stars. Short Mountain Holiday is a secluded glamping dome set on private countryside acreage in Liberty, TN, with Amber &amp; Micah as your hosts. After a full weekend in the city, this is the perfect way to finish the trip — quiet, wide open, and completely peaceful.",
         details='\n'.join([
             det("Check-in", "Sunday, June 7 · 3:00 PM"),
-            det("Check-out", "Monday, June 8 · 11:00 AM"),
+            det("Check-out", "Monday, June 8 · 10:30 AM"),
             det("Where", "215 Cove Ridge Ln<br>Liberty, TN 37095"),
             det("Confirmation", "#59615488"),
             det("Hosts", "Amber &amp; Micah @ Short Mountain Holiday"),
